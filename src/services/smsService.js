@@ -1,8 +1,9 @@
-const messagebird = require("messagebird")(process.env.MESSAGEBIRD_API_KEY);
+const messagebird = require("messagebird");
+const client = messagebird.initClient(process.env.MESSAGEBIRD_API_KEY);
 
 const sendSMS = (to, message) => {
   return new Promise((resolve, reject) => {
-    messagebird.messages.create(
+    client.messages.create(
       {
         originator: "CrediKhata",
         recipients: [to],
@@ -10,11 +11,12 @@ const sendSMS = (to, message) => {
       },
       (err, response) => {
         if (err) {
-          console.error("MessageBird SMS failed:", err.errors);
-          return reject(err);
+          console.error("MessageBird SMS failed:", err.errors || err.message);
+          reject(err);
+        } else {
+          console.log("SMS sent via MessageBird:", response);
+          resolve(response);
         }
-        console.log("SMS sent via MessageBird:", response);
-        resolve(response);
       }
     );
   });
