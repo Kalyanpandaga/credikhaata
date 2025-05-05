@@ -226,7 +226,7 @@ Returns repayments sorted by date in descending order. User must own the loan.
 ## 🌐 Links
 
 - GitHub: [https://github.com/Kalyanpandaga/credikhaata](https://github.com/Kalyanpandaga/credikhaata)
-- Deployed URL: `https://render something` (update with actual Render link)
+- Deployed URL: [https://credikhaata-backend-gnto.onrender.com](https://credikhaata-backend-gnto.onrender.com)
 
 ---
 
